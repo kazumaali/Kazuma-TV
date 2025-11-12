@@ -20,10 +20,7 @@ body {
             border-radius: 15px;
             backdrop-filter: blur(10px);
         }
-        .welcome-message {
-            font-size: 24px;
-            font-weight: bold;
-        }
+
         .logout-btn {
             background: rgba(255, 255, 255, 0.2);
             color: white;
@@ -38,7 +35,7 @@ body {
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
         }
-        .login-btn {
+        .login-index {
             background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
             color: white;
             border: none;
@@ -46,13 +43,13 @@ body {
             border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
-            text-decoration: none;
             display: inline-block;
             transition: all 0.3s;
         }
-        .login-btn:hover {
+.login-index:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                    text-decoration: none;
         }
         .content {
             text-align: center;
@@ -62,7 +59,24 @@ body {
             font-size: 48px;
             margin-bottom: 20px;
         }
-        .content p {
+.content p {
             font-size: 20px;
             margin-bottom: 30px;
-        }
+}
+
+.signlog {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            display: inline-block;
+            transition: all 0.3s;
+            text-decoration: none;
+}
+.signlog:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
