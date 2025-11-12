@@ -1,133 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en, ar, fa">
 <head>
     
     
     <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
-    <title>Kazuma TV</title>
-    <link rel="stylesheet" href="login.css">
+    <title>Kazuma TV/LOGIN</title>
+    <link rel="stylesheet" href="signup.css">
+    <script type="text/javascript" src="validation.js" defer></script>
     
     
 </head>
 <body>
     
-    
-    <div class="container">
-        <!-- Signup Form -->
-        <div class="form-container" id="signup-container">
-            <h2 class="form-title">Create Account</h2>
-            <form id="signup-form">
-                <div class="form-group">
-                    <label for="signup-username">Create Username</label>
-                    <input type="text" id="signup-username" required>
-                    <div class="error-message" id="username-error"></div>
-                </div>
-                <div class="form-group">
-                    <label for="signup-email">Enter Email</label>
-                    <input type="email" id="signup-email" required>
-                    <div class="error-message" id="email-error"></div>
-                </div>
-                <div class="form-group">
-                    <label for="signup-password">Create Password</label>
-                    <input type="password" id="signup-password" required>
-                    <i class="fas fa-eye password-toggle" id="toggle-signup-password"></i>
-                    <div class="error-message" id="password-error"></div>
-                </div>
-                <div class="form-group">
-                    <label for="confirm-password">Confirm Password</label>
-                    <input type="password" id="confirm-password" required>
-                    <i class="fas fa-eye password-toggle" id="toggle-confirm-password"></i>
-                    <div class="error-message" id="confirm-password-error"></div>
-                </div>
-                <button type="submit" class="btn">Sign Up</button>
-            </form>
-            <div class="form-footer">
-                Already have an account? <a id="show-login">Login</a>
+    <div class="wrapper">
+        <p id="error-message"></p>
+        <form id="form">
+            <div>
+                <label for="email-input">
+                    <span>@</span>
+                </label>
+                <input type="email" name="email" id="email-input" placeholder="أدخل عنوان بريدك الإلكتروني">
             </div>
-        </div>
-
-        <!-- Login Form -->
-        <div class="form-container" id="login-container" style="display: none;">
-            <h2 class="form-title">Welcome Back</h2>
-            <form id="login-form">
-                <div class="form-group">
-                    <label for="login-email">Email Address</label>
-                    <input type="email" id="login-email" required>
-                    <div class="error-message" id="login-email-error"></div>
-                </div>
-                <div class="form-group">
-                    <label for="login-password">Password</label>
-                    <input type="password" id="login-password" required>
-                    <i class="fas fa-eye password-toggle" id="toggle-login-password"></i>
-                    <div class="error-message" id="login-password-error"></div>
-                </div>
-                <button type="submit" class="btn">Login</button>
-            </form>
-            <div class="form-footer">
-                Don't have an account? <a id="show-signup">Sign Up</a>
+            <div>
+                <label for="password-input"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm240-200q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80Z"/></svg></label>
+                <input type="password" name="password" id="password-input" placeholder="أدخل كلمة المرور">
             </div>
-        </div>
-
-        <!-- Verification Form -->
-        <div class="verification-container" id="verification-container">
-            <h2 class="form-title">Verify Your Email</h2>
-            <p>We've sent a verification code to your email address</p>
-            <div class="verification-code">
-                <input type="text" maxlength="1" id="digit1">
-                <input type="text" maxlength="1" id="digit2">
-                <input type="text" maxlength="1" id="digit3">
-                <input type="text" maxlength="1" id="digit4">
-                <input type="text" maxlength="1" id="digit5">
-                <input type="text" maxlength="1" id="digit6">
-            </div>
-            <button class="btn" id="verify-btn">Verify</button>
-            <div class="resend-code" id="resend-code">Resend Code</div>
-            <div class="error-message" id="verification-error"></div>
-        </div>
+            <button type="submit">تسجيل الدخول</button>
+        </form>
+        <p>أنت جديد هنا؟<a href="signup.html">إصنع حسابك</a></p>
+        
+        
+        
     </div>
-
-    <!-- Notification -->
-    <div class="notification" id="notification"></div>
-    
-    
-    <section class="live-tv" id="liveTV">
-        
-        
-        
-        
-        
-    </section>
-    
-    
-    <section class="add-movie" id="addMovie">
-        
-        
-        
-        
-        
-    </section>
-    
-    
-    <section class="edit-schedule" id="editSchedule">
-        
-        
-        
-        
-        
-    </section>
-    
-    
-    <section class="last-added" id="lastAdd">
-        
-        
-        
-        
-        
-    </section>
-    
-    
-    
-    <script src="login_sample.js"></script>
     
     
     
