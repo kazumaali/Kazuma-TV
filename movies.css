@@ -1,47 +1,362 @@
-.add-movie-form input, label, button {
-    display: block;
-}
+/* movies.css - Responsive Design */
 
+/* Base styles for mobile first */
 .search-box {
-    width: min(480px, 100%);
-    background-color: brown;
-    display: flex;
-    padding: 5px;
-    margin-top: 0;
-    margin-left: 0;
-    border-radius: 3px 3px 3px 3px;
-    box-shadow: 0 12px 35px 0 black;
-    font-size: 2rem;
-}
-
-.search-box input {
-    border-radius: 5px 5px 5px 5px;
-    border: none;
     width: 90%;
-    height: 1.95rem;
-    margin-top: 2.8px;
+    max-width: 480px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    margin: 20px auto;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
 }
 
-.add-movie {
-    background-color: dodgerblue;
-    position: fixed;
-    z-index: 1000;
-    border: none;
-    margin-top: 480px;
-    margin-left: 310px;
-    border-radius: 55px 55px 55px 55px;
-    
-    height: 2.8rem;
-    width: 2.8rem;
-    align-items: center;
-    font-size: 2.8rem;
-    padding-bottom: 50px;
-    padding-left: 10px;
-    padding-right: 15px;
+.search-box:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.search-box label {
+    margin-right: 12px;
     color: white;
+    font-size: 1.3rem;
     cursor: pointer;
 }
 
-#imageInput {
+.search-box input {
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    width: 100%;
+    height: 2.5rem;
+    padding: 0 16px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    background: white;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Add Movie Button - Floating Action Button */
+.add-movie {
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+    position: fixed;
+    z-index: 1000;
+    border: none;
+    bottom: 30px;
+    right: 30px;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+    transition: all 0.3s ease;
+}
+
+.add-movie:hover {
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+}
+
+.add-movie:active {
+    transform: scale(0.95);
+}
+
+/* Add Movie Form */
+.add-movie-form {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 500px;
+    display: none; /* Hidden by default, show with JS */
+}
+
+.add-movie-form input,
+.add-movie-form label,
+.add-movie-form select,
+.add-movie-form button {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.add-movie-form label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.add-movie-form input[type="text"],
+.add-movie-form input[type="file"],
+.add-movie-form select {
+    padding: 12px 16px;
+    border: 2px solid #e1e5e9;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.add-movie-form input[type="text"]:focus,
+.add-movie-form select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    outline: none;
+}
+
+/* Multiple select for genres */
+.add-movie-form select[multiple] {
+    height: 200px;
+    resize: vertical;
+}
+
+.add-movie-form select[multiple] option {
+    padding: 10px 12px;
+    margin: 2px 0;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.add-movie-form select[multiple] option:hover {
+    background-color: #667eea;
+    color: white;
+}
+
+.add-movie-form select[multiple] option:checked {
+    background-color: #667eea;
+    color: white;
+}
+
+/* Save button */
+.save-movie {
+    background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.save-movie:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(68, 160, 141, 0.4);
+}
+
+.save-movie:active {
+    transform: translateY(0);
+}
+
+/* Canvas for image preview */
+#canvas {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 10px 0;
+    border: 2px dashed #e1e5e9;
+    display: none;
+}
+
+/* File input styling */
+.add-movie-form input[type="file"] {
+    padding: 10px;
+    background: #f8f9fa;
+    border: 2px dashed #dee2e6;
+}
+
+.add-movie-form input[type="file"]:hover {
+    border-color: #667eea;
+    background: #f0f4ff;
+}
+
+/* Responsive Design for Desktop */
+@media (min-width: 768px) {
+    .search-box {
+        width: 70%;
+        max-width: 600px;
+        padding: 15px 20px;
+        font-size: 1.2rem;
+    }
     
+    .search-box input {
+        height: 3rem;
+        font-size: 1.1rem;
+    }
+    
+    .add-movie {
+        height: 70px;
+        width: 70px;
+        font-size: 2.2rem;
+        bottom: 40px;
+        right: 40px;
+    }
+    
+    .add-movie-form {
+        padding: 30px;
+        margin: 30px auto;
+    }
+    
+    /* Two column layout for form on desktop */
+    .add-movie-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        max-width: 800px;
+    }
+    
+    .add-movie-form label,
+    .add-movie-form input,
+    .add-movie-form select,
+    .add-movie-form button {
+        grid-column: 1 / -1;
+    }
+    
+    /* Make some elements span only one column */
+    .add-movie-form select[multiple] {
+        grid-column: 1;
+        height: 250px;
+    }
+    
+    /* Place ageRange and movieType side by side on desktop */
+    .add-movie-form select:not([multiple]) {
+        grid-column: span 1;
+    }
+}
+
+/* Large desktop screens */
+@media (min-width: 1200px) {
+    .search-box {
+        max-width: 700px;
+    }
+    
+    .add-movie-form {
+        max-width: 900px;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    .add-movie-form select[multiple] {
+        grid-column: 1;
+        height: 300px;
+    }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+    .search-box {
+        width: 95%;
+        margin: 15px auto;
+        padding: 10px 14px;
+    }
+    
+    .search-box input {
+        height: 2.2rem;
+        font-size: 0.95rem;
+    }
+    
+    .add-movie {
+        height: 55px;
+        width: 55px;
+        font-size: 1.8rem;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .add-movie-form {
+        margin: 15px 10px;
+        padding: 15px;
+    }
+    
+    .add-movie-form input[type="text"],
+    .add-movie-form input[type="file"],
+    .add-movie-form select {
+        padding: 10px 12px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .add-movie-form {
+        background: #2d3748;
+        color: white;
+    }
+    
+    .add-movie-form input[type="text"],
+    .add-movie-form input[type="file"],
+    .add-movie-form select {
+        background: #4a5568;
+        border-color: #718096;
+        color: white;
+    }
+    
+    .add-movie-form label {
+        color: #e2e8f0;
+    }
+    
+    .search-box input {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+    
+    .search-box input::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+/* Animation for form appearance */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.add-movie-form.show {
+    display: block;
+    animation: slideUp 0.3s ease-out;
+}
+
+/* Loading state for buttons */
+.add-movie.loading,
+.save-movie.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.add-movie.loading::after,
+.save-movie.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
