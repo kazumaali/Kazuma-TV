@@ -1,0 +1,47 @@
+.add-movie-form input, label, button {
+    display: block;
+}
+
+.search-box {
+    width: min(480px, 100%);
+    background-color: brown;
+    display: flex;
+    padding: 5px;
+    margin-top: 0;
+    margin-left: 0;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 12px 35px 0 black;
+    font-size: 2rem;
+}
+
+.search-box input {
+    border-radius: 5px 5px 5px 5px;
+    border: none;
+    width: 90%;
+    height: 1.95rem;
+    margin-top: 2.8px;
+}
+
+.add-movie {
+    background-color: dodgerblue;
+    position: fixed;
+    z-index: 1000;
+    border: none;
+    margin-top: 480px;
+    margin-left: 310px;
+    border-radius: 55px 55px 55px 55px;
+    
+    height: 2.8rem;
+    width: 2.8rem;
+    align-items: center;
+    font-size: 2.8rem;
+    padding-bottom: 50px;
+    padding-left: 10px;
+    padding-right: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+#imageInput {
+    
+}
