@@ -130,6 +130,11 @@ form button:focus {
     background-color: var(--base-color);
 }
 
+form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 a {
     text-decoration: none;
     color: blue;
@@ -159,5 +164,14 @@ form div.incorrect input {
     background-color: red;
     color: white;
     font-size: 1.2rem;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    display: none;
+    width: 80%;
+    text-align: center;
+}
+
+#error-message.success {
+    background-color: green;
 }

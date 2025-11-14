@@ -4,12 +4,89 @@
     
     
     <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="movies.css">
+    <script type="text/javascript" src="users.js" defer></script>
+    <script type="text/javascript" src="movies.js" defer></script>
     <title>Kazuma TV/Movies</title>
     
     
 </head>
 <body>
     
+    <div class="search-box">
+        
+        <label for="searchBox"><span>🔎</span></label>
+        <input type="text" id="searchBox" placeholder="أدخل إسم العرض...">
+        
+        
+    </div>
+    <button class="add-movie" id="addMovie" onclick="addMovie()">+</button>
+    
+    <form class="add-movie-form">
+        
+        <label for="imageInput">أضف البوستر</label>
+        <input type="file" accept="image/*" id="imageInput">
+        <canvas id="canvas"></canvas>
+        
+        <input type="text" class="movie-name" id="movieName" placeholder="إسم العرض">
+        
+        <label for="genre">نوع العرض: </label>
+        <select id="genre" class="genre" name="genre" multiple size="29" required>
+            <option value="game">ألعاب</option>
+            <option value="action">أكشن</option>
+            <option value="children">أطفال</option>
+            <option value="history">تاريخي</option>
+            <option value="police">بوليسي</option>
+            <option value="isekai">إيسيكاي</option>
+            <option value="ecchi">إيتشي</option>
+            <option value="harem">حريم</option>
+            <option value="josei">جوسي</option>
+            <option value="horror">رعب</option>
+            <option value="drama">دراما</option>
+            <option value="sci-fi">خيال علمي</option>
+            <option value="fantasy">خيال</option>
+            <option value="magic">سحر</option>
+            <option value="sport">رياضي</option>
+            <option value="romance">رومانسي</option>
+            <option value="sliceOfLife">شريحة من الحياة</option>
+            <option value="seinen">سينين</option>
+            <option value="shounen">شونين</option>
+            <option value="shoujo">شوجو</option>
+            <option value="martial-arts">فنون قتالية</option>
+            <option value="space">فضاء</option>
+            <option value="parody">محاكاة ساخرة</option>
+            <option value="comedy">كوميديا</option>
+            <option value="adventures">مغامرات</option>
+            <option value="school">مدرسي</option>
+            <option value="psych">نفسي</option>
+            <option value="mecha">ميكا</option>
+            <option value="music">موسيقى</option>
+        </select>
+        
+        <label for="ageRange">الفئة العمرية</label>
+        <select id="ageRange" required>
+            
+            <option value="forEveryone">للجميع</option>
+            <option value="up12">+12</option>
+            <option value="up18">+18</option>
+            
+        </select>
+        
+        <label for="movieType">هل هو مسلسل مكون من حلقات، أم فيلم؟</label>
+        <select id="movieType" class="movieType" name="movieType" required>
+            
+            <option value="series">مسلسل</option>
+            <option value="film">فيلم</option>
+            
+        </select>
+        
+        <label for="videoInput">حمل الفيديو</label>
+        <input type="file" accept="video/*" id="videoInput">
+        
+        <button type="submit" id="saveMovieBtn" class="save-movie">حفظ</button>
+        
+    </form>
     
     
     

@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
-    
     <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
     <title>Kazuma TV/HOME</title>
     <link rel="stylesheet" href="index.css">
-    
-    
 </head>
 <body>
-    
-    
-    <button class="login-index"><a href="login.html">تسجيل الدخول</a></button>
-    
     <div class="container">
         <div class="header">
             <div class="logo">
                 <h1>🎬 Kazuma TV</h1>
+            </div>
+            <div class="user-section">
+                <span id="user-greeting"></span>
+                <button class="logout-btn" id="logout-btn" style="display: none;">تسجيل الخروج</button>
+                <a class="login-index" id="login-btn" href="login.html">تسجيل الدخول</a>
             </div>
         </div>
         
@@ -29,7 +26,7 @@
             </section>
             
             <section class="add-movie" id="addMovie">
-                <h2>مكتبة الأفلام والأنمي 🎬</h2>
+                <h2><a href="movies.html">مكتبة الأفلام والأنمي 🎬</a></h2>
             </section>
             
             <section class="edit-schedule" id="editSchedule">
@@ -42,12 +39,7 @@
         </div>
     </div>
     
-    
+    <script src="users.js"></script>
     <script src="index.js"></script>
-    
-    
-    
-    
-    
 </body>
 </html>
