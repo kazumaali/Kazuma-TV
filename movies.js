@@ -9,6 +9,7 @@ function checkAuth() {
     if (typeof userManager === 'undefined') {
         console.error('userManager is not defined');
         if (addMovie) addMovie.style.display = "none";
+        if (addMovieForm) addMovie.style.display = "none";
         return;
     }
     
@@ -21,12 +22,19 @@ function checkAuth() {
         return;
     }
     
+    if (!addMovieForm) {
+        console.error('addMovieForm element not found');
+        return;
+    }
+    
     if (currentUser === isAdmin) {
         console.log("User is admin, showing button"); // Debug log
         addMovie.style.display = "flex";
+        addMovieForm.style.display = "block";
     } else {
         console.log("User is not admin, hiding button"); // Debug log
         addMovie.style.display = "none";
+        addMovieForm.style.display = "none";
     }
 }
 
