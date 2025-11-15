@@ -13,7 +13,7 @@ function checkAuth() {
     if (typeof userManager === 'undefined') {
         console.error('userManager is not defined');
         if (addMovie) addMovie.style.display = "none";
-        if (addMovieForm) addMovie.style.display = "none";
+        if (addMovieForm) addMovieForm.style.display = "none";
         return;
     }
     
