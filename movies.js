@@ -1,5 +1,6 @@
 const addMovie = document.getElementById("addMovie");
 const isAdmin = "kazumasatou20021423@gmail.com";
+const addMovieForm = document.getElementById("addMovieForm");
 
 function checkAuth() {
     console.log("checkAuth called"); // Debug log
@@ -27,6 +28,13 @@ function checkAuth() {
         console.log("User is not admin, hiding button"); // Debug log
         addMovie.style.display = "none";
     }
+}
+
+function addMovies() {
+    
+    const hidden = window.getComputedStyle(addMovieForm).display === "none";
+    addMovieForm.style.display = hidden ? "block" : "none";
+    
 }
 
 // Wait for DOM to be fully loaded
