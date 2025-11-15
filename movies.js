@@ -32,11 +32,8 @@ function checkAuth() {
 
 function addMovies() {
     
-    if (addMovieForm.style.display === "none" || addMovieForm.style.display === "") {
-        addMovieForm.style.display = "block"
-    } else {
-        addMovieForm.style.display = "none"
-    }
+    const hidden = window.getComputedStyle(addMovieForm).display === "none";
+    addMovieForm.style.display = hidden ? "block" : "none";
     
 }
 
