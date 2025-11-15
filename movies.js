@@ -1,5 +1,13 @@
+const moviesContainer = document.getElementById('moviesContainer');
+const videoInput = document.getElementById('videoInput');
+const story = document.getElementById('story');
+const movieType = document.getElementById('movieType');
+const ageRange = document.getElementById('ageRange');
 const addMovie = document.getElementById("addMovie");
+const genre = document.getElementById('genre');
+const movieName = document.getElementById('movieName');
 const saveMovieBtn = document.getElementById("saveMovieBtn");
+const cancelMovieBtn = document.getElementById("cancelMovieBtn");
 const isAdmin = "kazumasatou20021423@gmail.com";
 const addMovieForm = document.getElementById("addMovieForm");
 const imageInput = document.getElementById('imageInput');
@@ -100,21 +108,121 @@ function compressImage(img, quality = 0.8) {
     return canvas.toDataURL('image/jpeg', quality);
 }
 
+function saveMovie(movieData) {
+    const movies = JSON.parse(localStorage.getItem('movies') || '[]');
+    movies.push(movieData);
+    localStorage.setItem('movies', JSON.stringify(movies));
+}
+
+// Function to display a movie card
+function displayMovie(movieData) {
+    
+    const movieCard = document.createElement('div');
+    movieCard.className = 'movie-card';
+    movieCard.innerHTML = `
+        ${movieData.poster ? `<img src="${movieData.poster}" class="movie-poster" alt="${movieData.name}">` : '<div class="movie-poster" style="background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999;">لا يوجد بوستر</div>'}
+        <div class="movie-info">
+            <h3 class="movie-title">${movieData.name}</h3>
+            <p class="movie-story">${movieData.story || 'لا توجد قصة متاحة'}</p>
+            <div class="movie-details">
+                <span>${movieData.type === 'series' ? 'مسلسل' : 'فيلم'}</span>
+                <span>${getAgeRangeText(movieData.ageRange)}</span>
+            </div>
+            <div class="movie-genres">
+                ${movieData.genres.map(genre => `<span class="genre-tag">${getGenreText(genre)}</span>`).join('')}
+            </div>
+        </div>
+    `;
+    
+    moviesContainer.appendChild(movieCard);
+}
+
+// Helper function to get age range text
+function getAgeRangeText(ageRange) {
+    const ageMap = {
+        'forEveryone': 'للجميع',
+        'up12': '+12',
+        'up18': '+18'
+    };
+    return ageMap[ageRange] || ageRange;
+}
+
+// Helper function to get genre text
+function getGenreText(genre) {
+    // You can create a mapping similar to ageRange if needed
+    return genre;
+}
+
+// Load existing movies when page loads
+function loadExistingMovies() {
+    const movies = JSON.parse(localStorage.getItem('movies') || '[]');
+    movies.forEach(movie => displayMovie(movie));
+}
+
+cancelMovieBtn.addEventListener('click', function(e) {
+    
+    addMovieForm.reset();
+    
+});
+
 saveMovieBtn.addEventListener('click', function(e) {
     e.preventDefault();
     
-    if (canvas.style.display !== 'none') {
-        const processedImageData = canvas.toDataURL('image/jpeg', 0.8);
-        console.log('Processed image ready:', processedImageData);
+    // Check if user is admin
+    const currentUser = userManager.getCurrentUser();
+    if (currentUser !== isAdmin) {
+        alert("غير مصرح لك بإضافة عروض!");
+        return;
     }
     
+    // Collect movie data
+    const movieData = {
+        id: Date.now(), // Simple unique ID
+        name: movieName.value,
+        genres: Array.from(genre.selectedOptions).map(opt => opt.value),
+        ageRange: ageRange.value,
+        type: movieType.value,
+        story: story.value,
+        createdAt: new Date().toISOString()
+    };
     
+    // Process image if available
+    if (canvas.style.display !== 'none') {
+        movieData.poster = canvas.toDataURL('image/jpeg', 0.8);
+    }
     
+    // Process video if available
+    const videoFile = videoInput.files[0];
+    if (videoFile) {
+        // For now, we'll store the file name. In a real app, you'd upload this to a server.
+        movieData.videoName = videoFile.name;
+    }
+    
+    // Save the movie
+    saveMovie(movieData);
+    
+    // Display the movie to audience
+    displayMovie(movieData);
+    
+    // Reset and hide the form
+    addMovieForm.reset();
+    canvas.style.display = 'none';
+    addMovieForm.style.display = 'none';
+    
+    console.log('Movie saved and displayed:', movieData);
+});
+
+// Call this when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadExistingMovies();
+    // ... your existing code
 });
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     console.log("DOM loaded"); // Debug log
+    
+    loadExistingMovies();
     
     // Check auth immediately
     checkAuth();

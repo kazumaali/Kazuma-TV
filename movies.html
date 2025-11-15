@@ -19,6 +19,10 @@
         <label for="searchBox"><span>🔎</span></label>
         <input type="text" id="searchBox" placeholder="أدخل إسم العرض...">
         
+    <div class="movies-container" id="moviesContainer">
+        
+    </div>
+        
         
     </div>
     <button class="add-movie" id="addMovie" onclick="addMovies()">+</button>
@@ -26,10 +30,10 @@
     <form class="add-movie-form" id="addMovieForm">
         
         <label for="imageInput">أضف البوستر</label>
-        <input type="file" accept="image/*" id="imageInput">
+        <input type="file" accept="image/*" id="imageInput" required>
         <canvas id="canvas"></canvas>
         
-        <input type="text" class="movie-name" id="movieName" placeholder="إسم العرض">
+        <input type="text" class="movie-name" id="movieName" placeholder="إسم العرض" required>
         
         <label for="genre">نوع العرض: </label>
         <select id="genre" class="genre" name="genre" multiple size="29" required>
@@ -85,7 +89,7 @@
         <input id="story" type="text">
         
         <label for="videoInput">حمل الفيديو</label>
-        <input type="file" accept="video/*" id="videoInput">
+        <input type="file" accept="video/*" id="videoInput" required>
         
         
         <button id="cancelMovieBtn" class="cancel-movie">إلغاء</button>
