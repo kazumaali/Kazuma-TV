@@ -356,14 +356,14 @@
 
 /* Loading state for buttons */
 .add-movie.loading,
-.save-movie.loading
+.save-movie.loading,
 .cancel-movie.loading {
     opacity: 0.7;
     pointer-events: none;
 }
 
 .add-movie.loading::after,
-.save-movie.loading::after
+.save-movie.loading::after,
 .cancel-movie.loading::after {
     content: '';
     position: absolute;
