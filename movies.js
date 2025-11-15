@@ -30,7 +30,7 @@ function checkAuth() {
     }
 }
 
-function addMovie() {
+function addMovies() {
     
     if (addMovieForm.style.display === "none" || addMovieForm.style.display === "") {
         addMovieForm.style.display = "block"
