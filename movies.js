@@ -1,3 +1,4 @@
+const movie-info = document.getElementsByClassName('movie-info');
 const moviesContainer = document.getElementById('moviesContainer');
 const videoInput = document.getElementById('videoInput');
 const story = document.getElementById('story');
@@ -121,7 +122,7 @@ function displayMovie(movieData) {
     movieCard.className = 'movie-card';
     movieCard.innerHTML = `
         ${movieData.poster ? `<img src="${movieData.poster}" class="movie-poster" alt="${movieData.name}">` : '<div class="movie-poster" style="background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999;">لا يوجد بوستر</div>'}
-        <div class="movie-info">
+        <div class="movie-info" onclick="showActive2()">
             <h3 class="movie-title">${movieData.name}</h3>
             <p class="movie-story">${movieData.story || 'لا توجد قصة متاحة'}</p>
             <div class="movie-details">
@@ -157,6 +158,10 @@ function getGenreText(genre) {
 function loadExistingMovies() {
     const movies = JSON.parse(localStorage.getItem('movies') || '[]');
     movies.forEach(movie => displayMovie(movie));
+}
+
+function showActive2() {
+    movie-info.parentElement.classList.add("active2");
 }
 
 cancelMovieBtn.addEventListener('click', function(e) {

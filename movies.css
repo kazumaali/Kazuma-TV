@@ -427,7 +427,8 @@
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .movie-card:hover {
@@ -479,4 +480,25 @@
     padding: 2px 8px;
     border-radius: 12px;
     font-size: 0.7rem;
+}
+
+.active2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: #A30000;
+    color: white;
+    margin: 0;
+    border-radius: 0;
+    overflow: auto;
+}
+
+.active2 .movie-poster {
+    max-height: 60vh;
+    width: auto;
+    margin: 0 auto;
+    display: block;
 }
