@@ -82,7 +82,7 @@
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
     max-width: 500px;
-    display: none; /* Hidden by default, show with JS */
+    display: none;
 }
 
 .add-movie-form input,
