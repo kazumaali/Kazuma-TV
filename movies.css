@@ -165,6 +165,28 @@
     transform: translateY(0);
 }
 
+.cancel-movie {
+    background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.cancel-movie:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(68, 160, 141, 0.4);
+}
+
+.cancel-movie:active {
+    transform: translateY(0);
+}
+
 /* Canvas for image preview */
 #canvas {
     max-width: 100%;
@@ -334,13 +356,15 @@
 
 /* Loading state for buttons */
 .add-movie.loading,
-.save-movie.loading {
+.save-movie.loading
+.cancel-movie.loading {
     opacity: 0.7;
     pointer-events: none;
 }
 
 .add-movie.loading::after,
-.save-movie.loading::after {
+.save-movie.loading::after
+.cancel-movie.loading::after {
     content: '';
     position: absolute;
     width: 20px;
